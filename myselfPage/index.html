@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>三棵树的个人网站主页</title>
+		<link rel="stylesheet"  href="css/bootstrap.min.css"/>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	
+	<body>
+		<div class="container-fluid" style="width: 100%;">
+			<div class="row" id="navigation" align="center">
+				<!--加载导航条-->
+			</div>
+			
+			<!--轮播图-->
+			<div class="row" id="carousel" align="center">
+				<!--加载导航条-->
+			</div>
+			
+			<!--分享+个人文章-->
+			<div class="row" id="carousel" align="center">
+				<!--分享-->
+				<div class="col-md-6">
+					<font size="7" color="#C12E2A">分享</font>
+				</div>
+				<!--个人文章-->
+				<div class="col-md-6">
+					<font size="7" color="#C12E2A">个人文章</font>
+				</div>
+			</div>
+			
+			<!-- 底层公告 -->
+			<div class="row" id="carousel" align="center">
+				<font size="7">底层通告</font>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script>
+		/*加载导航条*/
+		$("#navigation").load("navigation.html");
+		/*轮播图*/
+		$("#carousel").load("carousel.html");
+	</script>
+</html>
