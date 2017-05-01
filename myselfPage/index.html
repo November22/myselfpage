@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>三棵树的个人网站主页</title>
+		<!--弹出框的样式-->
+		<link rel="stylesheet" href="css/common.css"/>
 		<link rel="stylesheet"  href="css/bootstrap.min.css"/>
 		<style type="text/css">
 			
@@ -174,16 +176,39 @@
 				</div>
 				<div class="row" id="carousel" align="center">
 					<form method="get" action="#">
-						<textarea cols="180" rows="12"></textarea>
+						<textarea cols="180" rows="12" required="required" style="resize: none;"></textarea>
 						<br />
 						<input type="submit" value="留言" />
 					</form>
 				</div>
 				<hr />
 				<!-- 底层公告 -->
-				<div class="row" id="carousel" align="center">
+				<!--<div class="row" id="carousel" align="center">
 					如网页内容涉嫌违法乱纪等内容，请<a href="#">点击</a>联系网站管理员
+				</div>-->
+				
+				
+				<div class="box">
+					如网页内容涉嫌违法乱纪等内容，请<a href="javascript:;" class="bounceIn">点击</a>联系网站管理员
+					<div id="dialogBg"></div>
+					<div id="dialog" class="animated" style="height: 300px;">
+						<img class="dialogIco" width="50" height="50" src="images/ico.png" alt="" />
+						<div class="dialogTop">
+							<a href="javascript:;" class="claseDialogBtn">关闭</a>
+						</div>
+						<form action="" method="post" id="editForm">
+							
+							<ul class="editInfos">
+								<li>留下你的信息，管理员会通过邮件联系你！</li>
+								<li><label><font color="#ff0000">* </font>姓名：<input type="text" name="" required value="" class="ipt" /></label></li>
+								<li><label><font color="#ff0000">* </font>邮箱：<input type="text" name="" required value="" class="ipt" /></label></li>
+								<li><label><font color="#ff0000">* </font>问题：<input type="text" name="" required value="" class="ipt" /></label></li>
+								<li><input type="submit" value="确认" class="submitBtn" /></li>
+							</ul>
+						</form>
+					</div>
 				</div>
+				
 			</div>
 		</div>
 	</body>
@@ -195,5 +220,38 @@
 		$("#navigation").load("navigation.html");
 		/*轮播图*/
 		$("#carousel").load("carousel.html");
+	</script>
+	
+	<!--弹出框的js-->
+	<script type="text/javascript">
+		var w,h,className;
+		function getSrceenWH(){
+			w = $(window).width();
+			h = $(window).height();
+			$('#dialogBg').width(w).height(h);
+		}
+		
+		window.onresize = function(){  
+			getSrceenWH();
+		}  
+		$(window).resize();  
+		
+		$(function(){
+			getSrceenWH();
+			
+			//弹出
+			$('.box a').click(function(){
+				className = $(this).attr('class');
+				$('#dialogBg').fadeIn(300);
+				$('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
+			});
+			
+			//关闭
+			$('.claseDialogBtn').click(function(){
+				$('#dialogBg').fadeOut(300,function(){
+					$('#dialog').addClass('bounceOutUp').fadeOut();
+				});
+			});
+		});
 	</script>
 </html>
